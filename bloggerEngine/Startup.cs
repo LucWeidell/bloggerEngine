@@ -31,6 +31,12 @@ namespace bloggerEngine
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //
+            service.AddTransient(BlogsService);
+            //
+            service.AddTransient(BlogsRepository);
+            //
+
             ConfigureCors(services);
             ConfigureAuth(services);
             services.AddControllers();
@@ -39,7 +45,7 @@ namespace bloggerEngine
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "bloggerEngine", Version = "v1" });
             });
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
-            
+
             services.AddScoped<AccountsRepository>();
             services.AddScoped<AccountService>();
         }
@@ -94,10 +100,10 @@ namespace bloggerEngine
             }
 
             app.UseHttpsRedirection();
-            
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            
+
             app.UseRouting();
 
             app.UseAuthentication();
