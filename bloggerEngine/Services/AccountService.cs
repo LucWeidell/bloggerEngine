@@ -15,6 +15,11 @@ namespace bloggerEngine.Services
         {
             return _repo.GetById(id).Email;
         }
+
+        internal string GetProfileById(string id)
+        {
+            return _repo.GetById(id);
+        }
         internal Account GetProfileByEmail(string email)
         {
             return _repo.GetByEmail(email);

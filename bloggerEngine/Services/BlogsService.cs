@@ -39,7 +39,7 @@ namespace bloggerEngine.Services
         {
             // FIXME
             Blog blogToDelete = _repo.Get(int blogId, string userId);
-            return
+            return blogToDelete;
         }
 
         internal Blog Update(Blog editedBlog)
