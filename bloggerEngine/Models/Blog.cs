@@ -13,4 +13,8 @@ namespace bloggerEngine.Models
         public string CreatorId { get; set; }
         public Profile Creator { get; set; }
     }
+
+    public class BlogFavoriteViewModel : Blog{
+        public int FarvoriteId { get; set; }
+    }
 }
